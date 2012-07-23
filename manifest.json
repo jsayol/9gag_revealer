@@ -1,0 +1,27 @@
+{
+	"name": "9gag revealer",
+	"version": "2.0",
+	"manifest_version": 2,
+	
+	"description": "Automagically reveal nsfw images and YouTube videos on 9gag without signing up",
+
+	"icons": {
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+
+	"permissions": [
+		"http://9gag.com/*", "https://9gag.com/*"
+	],
+
+	"content_scripts": [
+		{
+		  "matches": ["http://9gag.com/*","https://9gag.com/*"],
+		  "run_at": "document_idle",
+		  "js": ["nsfw.js"]
+		}
+	],
+
+	"content_security_policy": "default-src 'none'; script-src 'self'"
+}
